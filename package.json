@@ -1,0 +1,26 @@
+{
+  "name": "mycmd",
+  "version": "0.0.1",
+  "description": "<put description here>",
+  "author": "Your Name <you.name@example.org>",
+  "contributors": [
+    {
+      "name": "Foo Bar",
+      "email": "foo.bar@example.com"
+    }
+  ],
+  "bin": {
+    "mycmd": "./mycmd.js"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "keywords": [
+    "mycmd",
+    "awesome",
+    "handy"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "MIT"
+}
