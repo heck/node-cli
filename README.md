@@ -1,3 +1,3 @@
 # MyCmd
 
-A prototype project for creating command line utils using Node, Gulp, and Liftoff.
+A prototype project for creating command line utils using Node and Liftoff.
