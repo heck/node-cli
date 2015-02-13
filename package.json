@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "liftoff": "^2.0.1",
-    "minimist": "^1.1.0"
+    "minimist": "^1.1.0",
+    "osenv": "^0.1.0"
   },
   "devDependencies": {},
   "license": "MIT"
