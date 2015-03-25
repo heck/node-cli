@@ -8,12 +8,6 @@ const MyCmd = new Liftoff({
     config: Osenv.home()+'/.mycmd'
 });
 
-const mycmd_logic = function(env) {
-    console.log('my environment is:', env);
-    console.log('my cli options are:', argv);
-    console.log('my liftoff config is:', this);
-};
-
 const myOptions = {
     string: [ "string-opt-1", "string-opt-2" ],
     boolean: [ "bool-opt-1", "bool-opt-2" ],
@@ -22,6 +16,12 @@ const myOptions = {
 };
 
 const argv = require('minimist')(process.argv.slice(2), myOptions);
+
+const mycmd_logic = function(env) {
+    console.log('my environment is:\n', env);
+    console.log('my cli options are:\n', argv);
+    console.log('my liftoff config is:\n', this);
+};
 
 MyCmd.launch(
     {},
