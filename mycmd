@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+
+// Coercion function for parsing out complex options
+function range(val) {
+  return val.split('..').map(Number);
+}
+
+function list(val) {
+  return val.split(',');
+}
+
+program
+  .version('0.0.1')
+  .usage('[options]')
+  .description('More text telling about this util')
+  .option('-a, --first_option', 'This is the first option')  // no default, just undefined or true
+  .option('-b, --second_option [param]', 'This is a second option with a param [mydefault]', 'mydefault')
+  .option('-c --size <size>', 'Size', /^(large|medium|small)$/i, 'medium')  // can use regex for validation/parsing
+  .option('-i, --integer <n>', 'An integer argument', parseInt)
+  .option('-f, --float <n>', 'A float argument', parseFloat)
+  .option('-r, --range <a>..<b>', 'A range', range)
+  .option('-l, --list <items>', 'A list', list);
+
+program
+  .command('simplesub <arg1> <other_args>')
+  .description('A simple sub command')
+  .action(function(arg1, other_args) {
+    console.log("simplesub!\n");
+    console.log("arg1:", arg1);
+    console.log("other_args", other_args);
+  });
+
+program
+  .command('complexsub <args>', 'Complex sub command defined in a separate file')  // file = mycmd-complexsub
+
+program.parse(process.argv);
+
+// The main command's logic
+console.log('option a:', program.first_option);
+console.log('option b:', program.second_option);
+console.log('option c:', program.size);
+console.log(' int: %j', program.integer);
+console.log(' float: %j', program.float);
+console.log(' optional: %j', program.optional);
+program.range = program.range || [];
+console.log(' range: %j..%j', program.range[0], program.range[1]);
+console.log(' list: %j', program.list);

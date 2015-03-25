@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+
+// NOTE: subcommand files need to be executable as well!
+
+var program = require('commander');
+
+program
+  .option('-z, --sub_option', 'An option for the complexsub command')
+  .parse(process.argv);
+
+
+console.log("ComplexSub!");
+console.log("sub_option: ", program.sub_option);
